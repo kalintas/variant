@@ -26,9 +26,10 @@ int main()
     // someObject is created
     v = someObject{};
 
+    // writing value of type std::string
+    v = "Hello World!\n";
     // someObject is destroyed
-    v = "test, test\n";
-    
+
     try
     {
         // reading value of type std::string
