@@ -89,7 +89,7 @@ union variantUnion<Arg>
     template<typename Type>
     constexpr variantIdType m_getId() const noexcept
     {
-        static_assert(std::is_same<Arg, Type>::value, "cannot find type");
+        static_assert(std::is_same<Arg, Type>::value, "there is no matching type");
 
         return id;
     }
@@ -97,7 +97,7 @@ union variantUnion<Arg>
     template<typename Type>
     constexpr const Type& m_getValue() const
     {
-        static_assert(std::is_same<Arg, Type>::value, "loll2");
+        static_assert(std::is_same<Arg, Type>::value, "there is no matching type");
 
         return arg;
     }
@@ -105,7 +105,7 @@ union variantUnion<Arg>
     template<typename Type>
     constexpr variantIdType operator= (const Type& value) noexcept
     {
-        static_assert(isValidVariantType<Arg, Type>::value, "lolll");
+        static_assert(isValidVariantType<Arg, Type>::value, "there is no matching type");
 
         if constexpr(std::is_trivially_constructible<Arg>::value) arg = value;
         else arg = *(new (this) Arg(value));
@@ -146,7 +146,7 @@ public:
     {
         if(m_id != args.template m_getId<Type>())
         {
-            throw "bad values";
+            throw "wrong variant index";
         }
 
         return args.template m_getValue<Type>();
