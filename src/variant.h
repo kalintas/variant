@@ -35,7 +35,7 @@ union variantUnion
     }
 
     template<typename Type>
-    constexpr const Type& m_getValue() const
+    constexpr const Type& m_getValue() const noexcept
     {
         if constexpr(std::is_same<Arg, Type>::value)
         {
@@ -95,7 +95,7 @@ union variantUnion<Arg>
     }
 
     template<typename Type>
-    constexpr const Type& m_getValue() const
+    constexpr const Type& m_getValue() const noexcept
     {
         static_assert(std::is_same<Arg, Type>::value, "there is no matching type");
 
