@@ -1,3 +1,1 @@
-simple variant
-
-just havin' fun
+Simple variant implementation of the std::variant.
