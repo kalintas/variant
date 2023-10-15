@@ -1,1 +1,1 @@
-Simple variant implementation of the std::variant.
+Simple implementation of the std::variant.
